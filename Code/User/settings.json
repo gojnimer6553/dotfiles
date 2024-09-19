@@ -23,6 +23,7 @@ If locally installed VS Code, this file is located:
     "editor.minimap.side": "right",
 
     // Format on Save
+    "files.autoSave": "off",
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": "explicit",
         "source.organizeImports": "explicit"
