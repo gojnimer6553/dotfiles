@@ -12,7 +12,7 @@ If locally installed VS Code, this file is located:
 
 {
     // set color theme
-        "workbench.colorTheme": "Default Dark+",
+        "workbench.colorTheme": "Default Dark Modern",
     // disable home screen
         "workbench.startupEditor": "none",
 
@@ -22,6 +22,13 @@ If locally installed VS Code, this file is located:
     // https://code.visualstudio.com/docs/getstarted/userinterface
     "editor.minimap.side": "right",
 
+    // Format on Save
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit",
+        "source.organizeImports": "explicit"
+    },
+    "editor.formatOnSave": true,
+    "eslint.run": "onSave",
     // move sidebar
         "workbench.sideBar.location": "left",
 
