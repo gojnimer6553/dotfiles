@@ -8,85 +8,83 @@ If locally installed VS Code, this file is located:
 ~/Library/Application Support/Code/User/settings.json
 */
 
-
-
 {
-    // set color theme
-        "workbench.colorTheme": "Default Dark Modern",
-    // disable home screen
-        "workbench.startupEditor": "none",
+  // set color and icon theme
+  "workbench.colorTheme": "Default Dark Modern",
+  "workbench.iconTheme": "vscode-icons",
+  // disable home screen
+  "workbench.startupEditor": "none",
 
-        "breadcrumbs.enabled": true,
+  "breadcrumbs.enabled": true,
 
-    // Minimap (code outline) gives you a high-level overview of your source code, which is useful for quick navigation and code understanding
-    // https://code.visualstudio.com/docs/getstarted/userinterface
-    "editor.minimap.side": "right",
+  // Minimap (code outline) gives you a high-level overview of your source code, which is useful for quick navigation and code understanding
+  // https://code.visualstudio.com/docs/getstarted/userinterface
+  "editor.minimap.side": "right",
 
-    // Format on Save
-    "files.autoSave": "off",
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": "explicit",
-        "source.organizeImports": "explicit"
-    },
-    "editor.formatOnSave": true,
-    "eslint.run": "onSave",
-    // move sidebar
-        "workbench.sideBar.location": "left",
+  // Format on Save
+  "files.autoSave": "off",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "explicit"
+  },
+  "editor.formatOnSave": true,
+  "eslint.run": "onSave",
+  // move sidebar
+  "workbench.sideBar.location": "left",
 
-    // Allow Coder to watch my use of code-server
-        "telemetry.enableTelemetry": true,
-    
-    // Turn on word-wrap for my note taking
-        "editor.wordWrap": "on",
-    
-    // Intellisense / autocomplete / suggestions settings
-    // https://code.visualstudio.com/docs/editor/intellisense#_customizing-intellisense
-    // https://code.visualstudio.com/docs/editor/intellisense
-    
-    // "editor.quickSuggestions": false,   
-    // Consider changing other to false for my note taking
-    // or alternatively increase the suggestion delay - now 2 seconds
-       "editor.quickSuggestions": {
-            "other": false,
-            "comments": false,
-            "strings": false
-        },
+  // Allow Coder to watch my use of code-server
+  "telemetry.enableTelemetry": true,
 
-    // Controls whether sorting favors words that appear close to the cursor    
-        "editor.suggest.localityBonus": false,
+  // Turn on word-wrap for my note taking
+  "editor.wordWrap": "on",
 
-    // show snippits
-        "editor.snippetSuggestions": "top",
+  // Intellisense / autocomplete / suggestions settings
+  // https://code.visualstudio.com/docs/editor/intellisense#_customizing-intellisense
+  // https://code.visualstudio.com/docs/editor/intellisense
 
-    // Controls if suggestions should automatically show up when typing trigger characters
-        "editor.suggestOnTriggerCharacters": true,
-    
-    // Controls if suggestions should be accepted on 'Enter' - in addition to 'Tab'. Helps to avoid ambiguity between inserting new lines or accepting suggestions. The value 'smart' means only accept a suggestion with Enter when it makes a textual change
-        "editor.acceptSuggestionOnEnter": "on",
-    
-    // Controls if pressing tab inserts the best suggestion and if tab cycles through other suggestions
-        "editor.tabCompletion": "off",    
-    
-    // Controls the delay in ms after which quick suggestions will show up.
-        "editor.quickSuggestionsDelay": 10,
-    
-    // Controls how suggestions are pre-selected when showing the suggest list
-        "editor.suggestSelection": "first",
-    
-    // Enable word based suggestions
-        "editor.wordBasedSuggestions": false,
-    
-    // Enable parameter hints
-        "editor.parameterHints.enabled": true,
-    
-    // Turn off file watchers
-        "files.watcherExclude": {
-            "**": true
-        },
-        
-    // Do not save tab | file history
-        "terminal.integrated.persistentSessionReviveProcess": "never",
+  // "editor.quickSuggestions": false,
+  // Consider changing other to false for my note taking
+  // or alternatively increase the suggestion delay - now 2 seconds
+  "editor.quickSuggestions": {
+    "other": false,
+    "comments": false,
+    "strings": false
+  },
 
-        "terminal.integrated.enablePersistentSessions": false
-    
-    }
+  // Controls whether sorting favors words that appear close to the cursor
+  "editor.suggest.localityBonus": false,
+
+  // show snippits
+  "editor.snippetSuggestions": "top",
+
+  // Controls if suggestions should automatically show up when typing trigger characters
+  "editor.suggestOnTriggerCharacters": true,
+
+  // Controls if suggestions should be accepted on 'Enter' - in addition to 'Tab'. Helps to avoid ambiguity between inserting new lines or accepting suggestions. The value 'smart' means only accept a suggestion with Enter when it makes a textual change
+  "editor.acceptSuggestionOnEnter": "on",
+
+  // Controls if pressing tab inserts the best suggestion and if tab cycles through other suggestions
+  "editor.tabCompletion": "off",
+
+  // Controls the delay in ms after which quick suggestions will show up.
+  "editor.quickSuggestionsDelay": 10,
+
+  // Controls how suggestions are pre-selected when showing the suggest list
+  "editor.suggestSelection": "first",
+
+  // Enable word based suggestions
+  "editor.wordBasedSuggestions": false,
+
+  // Enable parameter hints
+  "editor.parameterHints.enabled": true,
+
+  // Turn off file watchers
+  "files.watcherExclude": {
+    "**": true
+  },
+
+  // Do not save tab | file history
+  "terminal.integrated.persistentSessionReviveProcess": "never",
+
+  "terminal.integrated.enablePersistentSessions": false
+}
