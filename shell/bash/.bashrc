@@ -38,6 +38,29 @@ detect_package_manager() {
     fi
 }
 
+# Get the appropriate install command for the package manager
+get_install_command() {
+    local package_manager="$1"
+    
+    case "$package_manager" in
+        npm)
+            echo "npm install"
+            ;;
+        yarn)
+            echo "yarn install"
+            ;;
+        pnpm)
+            echo "pnpm install"
+            ;;
+        bun)
+            echo "bun install"
+            ;;
+        *)
+            return 1
+            ;;
+    esac
+}
+
 # Package.json script shortcuts
 run_package_script() {
     local script_name="$1"
@@ -55,8 +78,51 @@ run_package_script() {
         return 1
     fi
     
+    # Check if node_modules exists, if not, run install first
+    if [ ! -d "node_modules" ]; then
+        local install_cmd
+        install_cmd=$(get_install_command "$package_manager")
+        
+        if [ $? -eq 0 ]; then
+            echo "📦 node_modules not found. Running $install_cmd first..."
+            $install_cmd
+            
+            if [ $? -ne 0 ]; then
+                echo "❌ Installation failed"
+                return 1
+            fi
+        fi
+    fi
+    
     echo "🚀 Running $package_manager run $script_name"
     $package_manager run "$script_name"
+}
+
+# Install dependencies using the appropriate package manager
+install() {
+    if [ ! -f "package.json" ]; then
+        echo "❌ No package.json found in current directory"
+        return 1
+    fi
+    
+    local package_manager
+    package_manager=$(detect_package_manager)
+    
+    if [ $? -ne 0 ]; then
+        echo "❌ Could not detect package manager"
+        return 1
+    fi
+    
+    local install_cmd
+    install_cmd=$(get_install_command "$package_manager")
+    
+    if [ $? -eq 0 ]; then
+        echo "📦 Running $install_cmd"
+        $install_cmd
+    else
+        echo "❌ Unknown package manager: $package_manager"
+        return 1
+    fi
 }
 
 # Convenient aliases for common package.json scripts
