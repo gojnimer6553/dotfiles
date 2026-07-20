@@ -83,6 +83,36 @@ if [ -d "$PATH_VS_1" ]; then
 
     $COMMAND_S "$PATH_VS_1"
     $COMMAND_K "$PATH_VS_1"
-    $COMMAND_T "$PATH_VS_1"  
+    $COMMAND_T "$PATH_VS_1"
+fi
+
+echo "STEP 4: 💾 installing herdr and youtube-music-cli"
+
+if command -v apt-get &> /dev/null; then
+    MUSIC_DEPS=""
+    command -v mpv &> /dev/null || MUSIC_DEPS="$MUSIC_DEPS mpv"
+    command -v yt-dlp &> /dev/null || MUSIC_DEPS="$MUSIC_DEPS yt-dlp"
+    if [ -n "$MUSIC_DEPS" ]; then
+        sudo apt-get update -qq && sudo apt-get install -y$MUSIC_DEPS
+    fi
+else
+    echo "apt-get not found, skipping mpv/yt-dlp install (required by youtube-music-cli)"
+fi
+
+if command -v herdr &> /dev/null; then
+    echo "herdr already installed"
+else
+    curl -fsSL https://herdr.dev/install.sh | sh
+fi
+
+if command -v npm &> /dev/null; then
+    if command -v youtube-music-cli &> /dev/null; then
+        echo "youtube-music-cli already installed"
+    else
+        npm config set prefix "$HOME/.local"
+        npm install -g @involvex/youtube-music-cli
+    fi
+else
+    echo "npm not found, skipping youtube-music-cli install"
 fi
 
