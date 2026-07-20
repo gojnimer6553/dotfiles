@@ -1,4 +1,6 @@
 
+export PATH="/home/coder/.local/bin:$PATH"
+
 export HISTFILE="$HOME/.bash_history"
 export HISTSIZE=10000
 export HISTFILESIZE=100000
@@ -131,3 +133,6 @@ alias dev='run_package_script dev'
 alias build='run_package_script build'
 alias lint='run_package_script lint'
 alias format='run_package_script format'
+
+# Shortcut for launching youtube-music-cli
+alias yt='youtube-music-cli'
